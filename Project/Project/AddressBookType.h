@@ -94,12 +94,38 @@ void AddressBookType<elemType>::printAt()(int index)
     }
 }
 
-	// --------------------------------------------------------------
+// --------------------------------------------------------------
 // Print - Print Names Between Last Names
 template <class elemType>
 void AddressBookType<elemType>::printNamesBetweenLastNames(string s1, string s2)
 {
-    cout << s1[0] << endl;
+	for each (ExtPersonType person in this->list)
+	{
+		if (lexicalCompare(person.getLastName(), s1) && lexicalCompare(s2, person.getLastName())
+		{
+			person.print();
+		}
+	}
+}
+
+template <class elemType>
+bool AddressBookType<elemType>::lexicalCompare(string s1, string s2)
+{
+	int i = 0;
+	for (;;)
+	{
+		if (s1[i] == NULL) return false;
+		if (s2[i] == NULL) return true;
+
+		char a, b;
+		a = tolower(s1[i]);
+		b = tolower(s2[i]);
+
+		if (a < b) return false;
+		if (b < a) return true;
+
+		i++;
+	}
 }
 
 // ========================================================================== //
@@ -115,4 +141,19 @@ int AddressBookType<elemType>::search(string lastName)
         count++;
     }
     return -1;
+}
+
+// ========================================================================== //
+// Save Data
+template <class elemType>
+void AddressBookType<elemType>::saveData(&ofstream outFile)
+{
+	for each (ExtPersonType person in this->list)
+	{
+		AddressType a = person.getAddress();
+		DateType d = person.getDate();
+
+		outFile << person.getLastName() << " " << person.getFirstName() << endl;
+		outFile << d.getMonth() << " " << d.getDay() << " " << d.getYear() << endl;
+	}
 }
