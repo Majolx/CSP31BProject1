@@ -30,5 +30,5 @@ private:
 	string city;
 	string state;
 	string zipCode;
-}
+};
 #endif

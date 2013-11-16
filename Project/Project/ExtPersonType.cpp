@@ -19,7 +19,7 @@ void ExtPersonType::printInfo() const
 	PersonType p;
 	
 	p.print();
-	dob.print();
+	dob.printDate();
 	cout << "Phone Number: " << phoneNumber << endl <<
 		"Person Type: " << personStatus << endl;
 	address.print();
@@ -31,21 +31,21 @@ void ExtPersonType::setInfo(string f, string l, int m, int d, int y, string stre
 
 	name.setName(f, l);
 	dob.setDate(m, d, y);
-	address.setAddess(street, city, state, zipcode);
+	address.setAddress(street, city, state, zipcode);
 	phoneNumber = phoneN;
 	personStatus = stat;
 }
 
-void ExtPersonType::setInfo(string f, string l, AddressType a, DateType d, string phoneN, string stat)
+void ExtPersonType::setInfo(string firstName, string lastName, AddressType addressType, DateType dateType, string phoneN, string stat)
 {
 	string st, city, state, zip;
 	int m, d, y;
 	PersonType name;
 
-	name.setName(f, l);
-	a.getAddress(st, city, state, zip);
+	name.setName(firstName, lastName);
+	addressType.getAddress(st, city, state, zip);
 	address.setAddress(st, city, state, zip);
-	d.getDate(m, d, y);
+	dateType.getDate(m, d, y);
 	dob.setDate(m, d, y);
 	phoneNumber = phoneN;
 	personStatus = stat;

@@ -1,8 +1,15 @@
 #include <iostream>
-#include "AddressType.h"
 #include <string>
+#include "AddressType.h"
 
 using namespace std;
+	void AddressType::setAddress(string strAddr, string c, string st, string z)
+	{
+		streetAddress = strAddr;
+		city = c;
+		state = st;
+		zipCode = z;
+	}
 
 	void AddressType::getAddress(string &streetAddress, string &city, string &state, string &zipCode){
 	/*void AddressType::setAddress(string strAddr, string c, string st, string z){

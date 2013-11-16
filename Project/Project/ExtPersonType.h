@@ -28,6 +28,6 @@ public:
 	string getStatus() const;
 	AddressType getAddress() const;
 	DateType getDate() const;
-}
+};
 
 #endif

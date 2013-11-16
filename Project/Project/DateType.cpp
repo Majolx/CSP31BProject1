@@ -12,7 +12,7 @@ DateType::DateType(int month, int day, int year){
 	this->day = day;
 	this->year = year;
 }
-void DateType::setDate(){
+void DateType::setDate(int month, int day, int year){
 	this->day = day;
 	this->month = month;
 	this->year = year;

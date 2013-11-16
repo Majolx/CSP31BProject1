@@ -10,7 +10,7 @@ using namespace std;
 class DateType
 {
 public:
-	void setDate(); 
+	void setDate(int month, int day, int year); 
 	//Function to set the date.
 	//The member variables dMonth, dDay, and dYear are set 
 	//according to the parameters.
