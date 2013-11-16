@@ -20,10 +20,10 @@ string PersonType::getLastName() const
 	return lastName;
 }
 
-void PersonType::getName(string *f, string *l) const
+void PersonType::getName(string& f, string& l) const
 {
-	*f = firstName;
-	*l = lastName;
+	f = firstName;
+	l = lastName;
 }
 
 void PersonType::print() const
