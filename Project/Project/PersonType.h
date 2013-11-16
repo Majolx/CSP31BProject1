@@ -18,7 +18,7 @@ public:
 	//return the first name
 	string getLastName() const;
 	//return the last name
-	void getName(string *f, string *l) const;
+	void getName(string& f, string& l) const;
 	//return both first and last name
 	void print() const;
 

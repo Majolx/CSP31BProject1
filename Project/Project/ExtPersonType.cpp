@@ -38,11 +38,15 @@ void ExtPersonType::setInfo(string f, string l, int m, int d, int y, string stre
 
 void ExtPersonType::setInfo(string f, string l, AddressType a, DateType d, string phoneN, string stat)
 {
+	string st, city, state, zip;
+	int m, d, y;
 	PersonType name;
 
 	name.setName(f, l);
-	dob = a;
-	address = d;
+	a.getAddress(st, city, state, zip);
+	address.setAddress(st, city, state, zip);
+	d.getDate(m, d, y);
+	dob.setDate(m, d, y);
 	phoneNumber = phoneN;
 	personStatus = stat;
 }
