@@ -18,12 +18,15 @@ private:
 	DateType dob;
 public:
 	void printAddress() const;
+	//call the print function of the PersonType then call the print function of the 
 	void printInfo() const;
 	void setInfo(string f, string l, int m, int d, int y, string street, string city, string state, string zipcode, string phone, string person);
-	void setInfo(string f, string l, int m, int d, int y, string street, string city, string state, string zipcode);
+	void setInfo(string f, string l, AddressType a, DateType d, string phone, string status);
 	ExtPersonType(string f, string l, int m, int d, int y, string street, string city, string state, string zipcode, string phone, string person);
 
 	string getStatus() const;
+	AddressType getAddress() const;
+	DateType getDate() const;
 }
 
 #endif

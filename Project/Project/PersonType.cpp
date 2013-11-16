@@ -6,8 +6,8 @@ using  namespace std;
 
 void PersonType::setName(string f, string l)
 {
-	f = firstName;
-	l = lastName;
+	firstName = f;	//assign f to firstName
+	lastName = l;	//assign l to lastName
 }
 
 string PersonType::getFirstName() const
@@ -28,6 +28,7 @@ void PersonType::getName(string *f, string *l) const
 
 void PersonType::print() const
 {
+	//print the last name then first
 	cout << lastName << " " << firstName << endl;
 }
 

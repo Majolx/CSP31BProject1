@@ -1,4 +1,6 @@
 #include "ExtPersonType.h"
+#include "AddressType.h"
+#include "DateType.h"
 #include <iostream>
 #include <string>
 
@@ -34,15 +36,15 @@ void ExtPersonType::setInfo(string f, string l, int m, int d, int y, string stre
 	personStatus = stat;
 }
 
-void ExtPersonType::setInfo(string f, string l, int m, int d, int y, string street, string city, string state, string zipcode, string phoneN, string stat)
+void ExtPersonType::setInfo(string f, string l, AddressType a, DateType d, string phoneN, string stat)
 {
 	PersonType name;
 
 	name.setName(f, l);
-	dob.setDate(m, d, y);
-	address.setAddess(street, city, state, zipcode);
-	phoneNumber = "";
-	personStatus = "";
+	dob = a;
+	address = d;
+	phoneNumber = phoneN;
+	personStatus = stat;
 }
 
 ExtPersonType::ExtPersonType(string f, string l, int m, int d, int y, string street, string city, string state, string zipcode, string phoneN, string stat)
@@ -51,7 +53,7 @@ ExtPersonType::ExtPersonType(string f, string l, int m, int d, int y, string str
 
 	name.setName(f, l);
 	dob.setDate(m, d, y);
-	address.setAddess(street, city, state, zipcode);
+	address.setAddress(street, city, state, zipcode);
 	phoneNumber = phoneN;
 	personStatus = stat;
 }
@@ -59,4 +61,14 @@ ExtPersonType::ExtPersonType(string f, string l, int m, int d, int y, string str
 string ExtPersonType::getStatus() const
 {
 	return personStatus;
+}
+
+AddressType ExtPersonType::getAddress() const
+{
+	return address;
+}
+
+DateType ExtPersonType::getDate() const
+{
+	return dob;
 }
