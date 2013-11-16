@@ -1,5 +1,5 @@
 /*	Class DateType has three private data components ( month, day, and year) all of the type int.  
-	The program has setDate, getmonth, 
+	The program has setDate, getMonth, getDay, getYear, 
 */
 #ifndef H_DateType
 #define H_DateType
@@ -10,20 +10,32 @@ using namespace std;
 class DateType
 {
 public:
-	void setDate(int *month, int *day, int *year); 
-	//set member variables month, day, and year
+	void setDate(); 
+	//Function to set the date.
+	//The member variables dMonth, dDay, and dYear are set 
+	//according to the parameters.
+	//Postcondition: Month = month; Day = day;
+	//               Year = year
+
+	void getDate(int &month, int &day, int &year); 
+	//Fuunction to get the date.
+	//getDate function to return values by reference
+	//Postcondition:  The values are returned by reference
 
 	int getDay() const;
-	//return day
+	//Function to return the day.
+    //Postcondition: The value of Day is returned.
 
 	int getMonth() const;
-	//return month
+	//Function to return the month.  
+	//Postcondition: The value of Month is returned
 
 	int getYear() const;
-	//return year
+	//Function to return the year.     
+	//Postcondition: The value of Year is returned.
 
 	void printDate() const;
-	//print the date in the format: dMonth-dDay-dYear
+	//Function to print the date in the format: Month/Day/Year
 
 	DateType(int month, int day, int year);
 	//defalt constructor
@@ -31,11 +43,10 @@ public:
 	DateType();
 	// constructor
 private:
-	int month;
-	int day;
-	int year;
+	int month;	// variable to store the month
+	int day;	// variable to store the day
+	int year;	// variable to store the year
 	
-	bool isLeapYear();
-	//check if year is a leap year
+	bool isLeapYear();	//check if year is a leap year
 };
 #endif

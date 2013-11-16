@@ -1,6 +1,7 @@
 #ifndef H_AddressType
 #define H_AddressType
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -10,7 +11,7 @@ public:
 	void setAddress(string, string, string, string);
 	//set member variables streetAddress, city, state, zipcode
 
-	string getAddress(streetAddress, );
+	void getAddress(string &streetAddress, string &city, string &state, string &zipCode);
 	//return address
 
 	void print()const;
@@ -21,7 +22,7 @@ public:
 	AddressType();
 	//constructor
 
-	AddressType(string, string, string, string);
+	AddressType(string &streetAddress, string &city, string &state, string &zipCode);
 	//defalt constructor
 
 private:

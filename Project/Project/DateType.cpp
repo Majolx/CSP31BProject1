@@ -3,19 +3,19 @@
 
 using namespace std;
 DateType::DateType(){
-	int month = 1;
-	int day = 1;
-	int year = 1900;
+	month = 1;
+	day = 1;
+	year = 1900;
 }
-DateType::DateType(int m, int d, int y){
-	month = m;
-	day = d;
-	year = y;
+DateType::DateType(int month, int day, int year){
+	this->month = month;
+	this->day = day;
+	this->year = year;
 }
-void DateType::setDate(int m, int d, int y){
-	month = m;
-	day = d;
-	year = y;
+void DateType::setDate(){
+	this->day = day;
+	this->month = month;
+	this->year = year;
 }
 int DateType::getDay() const{
 	return day;
@@ -26,9 +26,15 @@ int DateType::getMonth() const{
 int DateType::getYear() const{
 	return year;
 }
+void DateType::getDate(int &month, int &day, int &year){
+	this->month = month;
+	this->day = day;
+	this->year = year;
+
+}
 void DateType::printDate() const{
 	cout << month <<"/" << day << "/" << year << endl;
 }
-bool DateType::isLeapYear() const{
+bool DateType::isLeapYear(){
 	return (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
 }
