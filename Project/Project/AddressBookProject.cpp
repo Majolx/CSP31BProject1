@@ -64,26 +64,11 @@ int main()
 			iss >> month >> day >> year;
 
 			street = line[2];
-
-			iss.clear();
-			iss.str(line[3]);
-			iss >> city;
-
-			iss.clear();
-			iss.str(line[4]);
-			iss >> state;
-
-			iss.clear();
-			iss.str(line[5]);
-			iss >> zipCode;
-
-			iss.clear();
-			iss.str(line[6]);
-			iss >> phoneNumber;
-
-			iss.clear();
-			iss.str(line[7]);
-			iss >> status;
+			city = line[3];
+			state = line[4];
+			zipCode = line[5];
+			phoneNumber = line[6];
+			status = line[7];
 
 			ExtPersonType person(firstName, lastName, 
 								 month, day, year, 
@@ -108,6 +93,7 @@ int main()
 		cout << "Choose among the following options." << endl << endl;
 
 		showMenu();
+
 
 		for (;;)
 		{
@@ -327,6 +313,9 @@ void optionSix()
 
 void optionSeven()
 {
+	ofstream outFile;
+	outFile.open("output.txt");
+	addressBook.saveData(outFile);
 }
 
 void resetInput()

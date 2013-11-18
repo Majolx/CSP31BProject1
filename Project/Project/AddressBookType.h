@@ -168,16 +168,20 @@ void AddressBookType<elemType>::saveData(ofstream& outFile)
 {
 	for (int i = 0; i < this->length; i++)
 	{
-		AddressType a = list[i].getAddress();
 		DateType d = list[i].getDate();
+		AddressType a = list[i].getAddress();
+		string aMembers[4];
+		a.getAddress(aMembers[0], aMembers[1], aMembers[2], aMembers[3]);
 
-		outFile << list[i].getLastName() << " " << list[i].getFirstName() << endl;
+		outFile << list[i].getFirstName() << " " << list[i].getLastName() << endl;
 		outFile << d.getMonth() << " " << d.getDay() << " " << d.getYear() << endl;
-		outFile << a.getStreet() << endl;
-		outFile << a.getCity() << endl;
-		outFile << a.getState() << endl;
-		outFile << a.getZipCode() << endl;
-		outFile << a.getPhoneNumber() << endl;
-		outFile << list[i].getStatus() << endl;
+		outFile << aMembers[0] << endl;
+		outFile << aMembers[1] << endl;
+		outFile << aMembers[2] << endl;
+		outFile << aMembers[3] << endl;
+		outFile << list[i].getPhoneNumber() << endl;
+		outFile << list[i].getStatus();
+		if (i + 1 != this->length)
+			outFile << endl;
 	}
 }

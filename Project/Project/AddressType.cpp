@@ -12,15 +12,10 @@ using namespace std;
 	}
 
 	void AddressType::getAddress(string &streetAddress, string &city, string &state, string &zipCode){
-	/*void AddressType::setAddress(string strAddr, string c, string st, string z){
-	streetAddress = strAddr;
-	city = c;
-	state = st;
-	zipCode = z;}*/
-	this->streetAddress = streetAddress;
-	this->city = city;
-	this->state = state;
-	this->zipCode = zipCode;
+	streetAddress = this->streetAddress;
+	city = this->city;
+	state = this->state;
+	zipCode = this->zipCode;
 }
 
 	void AddressType::print()const{
