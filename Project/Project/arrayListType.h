@@ -241,7 +241,7 @@ void arrayListType<elemType>::clearList()
 template <class elemType>
 int arrayListType<elemType>::seqSearch(const elemType& item) const
 {
-    int loc;
+    /*int loc;
     bool found = false;
 
     for (loc = 0; loc < length; loc++)
@@ -254,7 +254,8 @@ int arrayListType<elemType>::seqSearch(const elemType& item) const
     if (found)
         return loc;
     else
-        return -1;
+        return -1;*/
+	return -1;
 } //end seqSearch
 
 template <class elemType>
@@ -287,7 +288,7 @@ void arrayListType<elemType>::remove(const elemType& removeItem)
 
     if (length == 0)
         cerr << "Cannot delete from an empty list." << endl;
-    else
+    /*else
     {
         loc = seqSearch(removeItem);
 
@@ -296,7 +297,7 @@ void arrayListType<elemType>::remove(const elemType& removeItem)
         else
             cout << "The item to be deleted is not in the list."
                  << endl;
-    }
+    }*/
 } //end remove
 
 template <class elemType>

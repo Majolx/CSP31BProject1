@@ -37,6 +37,8 @@ public:
 	void printDate() const;
 	//Function to print the date in the format: Month/Day/Year
 
+	bool operator==(DateType& rhs) const;
+
 	DateType(int month, int day, int year);
 	//defalt constructor
 

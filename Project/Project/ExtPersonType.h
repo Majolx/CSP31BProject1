@@ -29,6 +29,9 @@ public:
 	string getStatus() const;
 	AddressType getAddress() const;
 	DateType getDate() const;
+	string getPhoneNumber() const;
+
+	bool operator==(ExtPersonType& rhs) const;
 };
 
 #endif

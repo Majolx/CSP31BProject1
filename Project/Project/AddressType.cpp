@@ -27,6 +27,14 @@ using namespace std;
 	cout << streetAddress << endl << city << ", " << state << " " << zipCode << endl;
 }
 
+bool AddressType::operator==(AddressType& rhs) const
+{
+	return (this->streetAddress == rhs.streetAddress &&
+		    this->city == rhs.city &&
+			this->state == rhs.state &&
+			this->zipCode == rhs.zipCode);
+}
+
 	AddressType::AddressType(){
 	streetAddress = "";
 	city = "";

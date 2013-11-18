@@ -30,6 +30,7 @@ public:
 	//streetAddress
 	//city, state zipcode
 
+	bool operator==(AddressType& rhs) const;
 	AddressType();
 	//constructor
 

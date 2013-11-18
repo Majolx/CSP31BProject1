@@ -22,20 +22,20 @@ public:
     void printNamesWithStatus(string);
     void printAt(int);
     void printNamesBetweenLastNames(string, string);
+	void printNamesWithBirthday(int);
     void saveData(ofstream&);
 	bool lexicalCompare(string, string);
 
-    AddressBookType();
 
-private:
-	int length;
+    AddressBookType();
 };
 
 // ========================================================================== //
 // Constructor - Default
 template <class elemType>
-AddressBookType<elemType>::AddressBookType() : length(0)
+AddressBookType<elemType>::AddressBookType()
 {   
+	length = 0;
 }
 
 // ========================================================================== //
@@ -43,9 +43,10 @@ AddressBookType<elemType>::AddressBookType() : length(0)
 template <class elemType>
 void AddressBookType<elemType>::print()
 {
-    for each (ExtPersonType person in this->list)
+    for (int i = 0; i < length; i++)
     {
-       person.printInfo();
+       list[i].printInfo();
+	   cout << endl;
     }
 }
 
@@ -54,11 +55,11 @@ void AddressBookType<elemType>::print()
 template <class elemType>
 void AddressBookType<elemType>::printNameInTheMonth(int month)
 {
-    for each (ExtPersonType person in this->list)
+    for (int i = 0; i < this->length; i++)
     {
-        if (person.getMonth() == month)
+        if (list[i].getMonth() == month)
         {
-            person.print();
+            list[i].print();
         }
     }
 }
@@ -81,10 +82,10 @@ void AddressBookType<elemType>::printInfoOf(string lastName)
 template <class elemType>
 void AddressBookType<elemType>::printNamesWithStatus(string status)
 {
-    for each (ExtPersonType person in this->list)
+    for (int i = 0; i < this->length; i++)
     {
-        if (person.getStatus() == status)
-            person.print();
+        if (list[i].getStatus() == status)
+            list[i].print();
     }
 }
 
@@ -104,11 +105,11 @@ void AddressBookType<elemType>::printAt(int index)
 template <class elemType>
 void AddressBookType<elemType>::printNamesBetweenLastNames(string s1, string s2)
 {
-	for each (ExtPersonType person in this->list)
+	for (int i = 0; i < this->length; i++)
 	{
-		if (lexicalCompare(person.getLastName(), s1) && lexicalCompare(s2, person.getLastName()))
+		if (lexicalCompare(list[i].getLastName(), s1) && lexicalCompare(s2, list[i].getLastName()))
 		{
-			person.print();
+			list[i].print();
 		}
 	}
 }
@@ -116,11 +117,13 @@ void AddressBookType<elemType>::printNamesBetweenLastNames(string s1, string s2)
 template <class elemType>
 bool AddressBookType<elemType>::lexicalCompare(string s1, string s2)
 {
+	if (s1 == s2) return true;
+
 	int i = 0;
 	for (;;)
 	{
-		if (s1[i] == NULL) return false;
-		if (s2[i] == NULL) return true;
+		if (NULL == s1[i]) return false;
+		if (NULL == s2[i]) return true;
 
 		char a, b;
 		a = tolower(s1[i]);
@@ -133,18 +136,28 @@ bool AddressBookType<elemType>::lexicalCompare(string s1, string s2)
 	}
 }
 
+template <class elemType>
+void AddressBookType<elemType>::printNamesWithBirthday(int month)
+{
+	for (int i = 0; i < this->length; i++)
+	{
+		if (list[i].getDate().getMonth() == month)
+			list[i].print();
+	}
+}
+
 // ========================================================================== //
 // Search
 template <class elemType>
 int AddressBookType<elemType>::search(string lastName)
 {
     int count = 0;
-    for each (ExtPersonType person in this->list)
-    {
-        if (person.getLastName() == lastName)
-            return count;
-        count++;
-    }
+	for (int i = 0; i < this->length; i++)
+	{
+		if (list[i].getLastName() == lastName)
+			return count;
+		count++;
+	}
     return -1;
 }
 
@@ -153,12 +166,18 @@ int AddressBookType<elemType>::search(string lastName)
 template <class elemType>
 void AddressBookType<elemType>::saveData(ofstream& outFile)
 {
-	for each (ExtPersonType person in this->list)
+	for (int i = 0; i < this->length; i++)
 	{
-		AddressType a = person.getAddress();
-		DateType d = person.getDate();
+		AddressType a = list[i].getAddress();
+		DateType d = list[i].getDate();
 
-		outFile << person.getLastName() << " " << person.getFirstName() << endl;
+		outFile << list[i].getLastName() << " " << list[i].getFirstName() << endl;
 		outFile << d.getMonth() << " " << d.getDay() << " " << d.getYear() << endl;
+		outFile << a.getStreet() << endl;
+		outFile << a.getCity() << endl;
+		outFile << a.getState() << endl;
+		outFile << a.getZipCode() << endl;
+		outFile << a.getPhoneNumber() << endl;
+		outFile << list[i].getStatus() << endl;
 	}
 }

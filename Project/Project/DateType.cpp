@@ -32,6 +32,14 @@ void DateType::getDate(int &month, int &day, int &year){
 	this->year = year;
 
 }
+
+bool DateType::operator==(DateType& rhs) const
+{
+	return (this->day == rhs.day &&
+		    this->month == rhs.month &&
+			this->year == rhs.year);
+}
+
 void DateType::printDate() const{
 	cout << month <<"/" << day << "/" << year << endl;
 }

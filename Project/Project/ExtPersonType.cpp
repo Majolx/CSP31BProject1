@@ -15,10 +15,8 @@ void ExtPersonType::printAddress() const
 }
 
 void ExtPersonType::printInfo() const
-{
-	PersonType p;
-	
-	p.print();
+{	
+	this->print();
 	dob.printDate();
 	cout << "Phone Number: " << phoneNumber << endl <<
 		"Person Type: " << personStatus << endl;
@@ -27,9 +25,7 @@ void ExtPersonType::printInfo() const
 
 void ExtPersonType::setInfo(string f, string l, int m, int d, int y, string street, string city, string state, string zipcode, string phoneN, string stat)
 {
-	PersonType name;
-
-	name.setName(f, l);
+	this->setName(f, l);
 	dob.setDate(m, d, y);
 	address.setAddress(street, city, state, zipcode);
 	phoneNumber = phoneN;
@@ -53,9 +49,7 @@ void ExtPersonType::setInfo(string firstName, string lastName, AddressType addre
 
 ExtPersonType::ExtPersonType(string f, string l, int m, int d, int y, string street, string city, string state, string zipcode, string phoneN, string stat)
 {
-	PersonType name;
-
-	name.setName(f, l);
+	this->setName(f, l);
 	dob.setDate(m, d, y);
 	address.setAddress(street, city, state, zipcode);
 	phoneNumber = phoneN;
@@ -79,4 +73,19 @@ AddressType ExtPersonType::getAddress() const
 DateType ExtPersonType::getDate() const
 {
 	return dob;
+}
+
+string ExtPersonType::getPhoneNumber() const
+{
+	return phoneNumber;
+}
+
+bool ExtPersonType::operator==(ExtPersonType& rhs) const
+{
+	return (this->getFirstName() == rhs.getFirstName() &&
+			this->getLastName() == rhs.getLastName() &&
+			this->getAddress() == rhs.getAddress() &&
+			this->getDate() == rhs.getDate() &&
+			this->getStatus() == rhs.getStatus() &&
+			this->getPhoneNumber() == rhs.getPhoneNumber());
 }

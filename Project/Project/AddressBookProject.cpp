@@ -19,9 +19,11 @@ void optionFive();
 void optionSix();
 void optionSeven();
 
+AddressBookType<ExtPersonType> addressBook;
+
 int main()
 {
-	AddressBookType<ExtPersonType> addressBook;
+
 	ifstream inFile;
 	inFile.open("data.txt", ifstream::in);
 
@@ -45,7 +47,6 @@ int main()
 			for (int i = 0; i < ENTRY_SIZE; i++)
 			{
 				getline(inFile, line[i]);
-				cout << line[i];
 				/*
 				if (!getline(inFile, line[i]))
 				{
@@ -89,10 +90,7 @@ int main()
 								 street, city, state, zipCode, 
 								 phoneNumber, status);
 			
-			person.print();
-			//person.printInfo();
-			cout << "BR" << endl;
-			//addressBook.insert(person);
+			addressBook.insert(person);
 		}
 	}
 	else
@@ -200,6 +198,15 @@ void optionOne()
 		cout << "Enter the last name of the person: ";
 		if (cin >> lastName)
 		{
+			int loc = addressBook.search(lastName);
+			if (loc != -1)
+			{
+				cout << lastName << " found at location " << loc + 1 << endl;
+			}
+			else
+			{
+				cout << "Entry not found." << endl;
+			}
 			return;
 		}
 		else
@@ -212,22 +219,110 @@ void optionOne()
 
 void optionTwo()
 {
+	string lastName;
+	for (;;)
+	{
+		cout << "Enter the last name of the person: ";
+		if (cin >> lastName)
+		{
+			int loc = addressBook.search(lastName);
+			if (loc != -1)
+			{
+				cout << endl;
+				addressBook.printInfoOf(lastName);
+				cout << endl << endl;
+			}
+			else
+			{
+				cout << "Entry not found." << endl << endl;
+			}
+			return;
+		}
+		else
+		{
+			cout << "Invalid input!" << endl << endl;
+			resetInput();
+		}
+	}
 }
 
 void optionThree()
 {
+	int birthMonth;
+	for (;;)
+	{
+		cout << "Enter the birthday month you wish to search: ";
+		if (cin >> birthMonth)
+		{
+			cout << endl;
+			addressBook.printNamesWithBirthday(birthMonth);
+			cout << endl << endl;
+			return;
+		}
+		else
+		{
+			cout << "Invalid input!" << endl;
+			resetInput();
+		}
+	}
 }
 
 void optionFour()
 {
+	string startName, endName;
+	for (;;)
+	{
+		cout << "Enter starting last name: ";
+		if (cin >> startName)
+		{
+			cout << "Enter ending last name: ";
+			if (cin >> endName)
+			{
+				cout << endl;
+				addressBook.printNamesBetweenLastNames(startName, endName);
+				cout << endl << endl;
+				return;
+			}
+			else
+			{
+				cout << "Invalid input!" << endl;
+				resetInput();
+			}
+		}
+		else
+		{
+			cout << "Invalid input!" << endl;
+			resetInput();
+		}
+	}
 }
 
 void optionFive()
 {
+	string status;
+	for (;;)
+	{
+		cout << "Enter the status you wish to search: ";
+		if (cin >> status)
+		{
+			cout << endl;
+			addressBook.printNamesWithStatus(status);
+			cout << endl << endl;
+			return;
+		}
+		else
+		{
+			cout << "Invalid input!" << endl;
+			resetInput();
+		}
+	}
 }
 
 void optionSix()
 {
+	cout << addressBook.listSize() << endl;
+	addressBook.print();
+	return;
 }
 
 void optionSeven()
