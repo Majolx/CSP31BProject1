@@ -24,6 +24,7 @@ public:
 	void setInfo(string f, string l, int m, int d, int y, string street, string city, string state, string zipcode, string phone, string person);
 	void setInfo(string f, string l, AddressType a, DateType d, string phone, string status);
 	ExtPersonType(string f, string l, int m, int d, int y, string street, string city, string state, string zipcode, string phone, string person);
+	ExtPersonType();
 
 	string getStatus() const;
 	AddressType getAddress() const;

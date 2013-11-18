@@ -62,6 +62,10 @@ ExtPersonType::ExtPersonType(string f, string l, int m, int d, int y, string str
 	personStatus = stat;
 }
 
+ExtPersonType::ExtPersonType()
+{
+}
+
 string ExtPersonType::getStatus() const
 {
 	return personStatus;
