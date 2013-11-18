@@ -6,12 +6,13 @@
  * Date:        11/13/2013
  ******************************************************************************/
 #include <iostream>
+#include <fstream>
 #include "arrayListType.h"
 
 using namespace std;
 
 template <class elemType>
-class AddressBookType<elemType> : public arrayListType
+class AddressBookType : public arrayListType<elemType>
 {
 public:
     void print();
@@ -21,9 +22,13 @@ public:
     void printNamesWithStatus(string);
     void printAt(int);
     void printNamesBetweenLastNames(string, string);
-    void saveData(&ofstream);
+    void saveData(ofstream&);
+	bool lexicalCompare(string, string);
 
     AddressBookType();
+
+private:
+	int length;
 };
 
 // ========================================================================== //
@@ -86,7 +91,7 @@ void AddressBookType<elemType>::printNamesWithStatus(string status)
 // --------------------------------------------------------------
 // Print - Print At
 template <class elemType>
-void AddressBookType<elemType>::printAt()(int index)
+void AddressBookType<elemType>::printAt(int index)
 {
     if (this->list[index] != NULL)
     {
@@ -101,7 +106,7 @@ void AddressBookType<elemType>::printNamesBetweenLastNames(string s1, string s2)
 {
 	for each (ExtPersonType person in this->list)
 	{
-		if (lexicalCompare(person.getLastName(), s1) && lexicalCompare(s2, person.getLastName())
+		if (lexicalCompare(person.getLastName(), s1) && lexicalCompare(s2, person.getLastName()))
 		{
 			person.print();
 		}
@@ -146,7 +151,7 @@ int AddressBookType<elemType>::search(string lastName)
 // ========================================================================== //
 // Save Data
 template <class elemType>
-void AddressBookType<elemType>::saveData(&ofstream outFile)
+void AddressBookType<elemType>::saveData(ofstream& outFile)
 {
 	for each (ExtPersonType person in this->list)
 	{
