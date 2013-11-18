@@ -1,5 +1,5 @@
 /*	Class DateType has three private data components ( month, day, and year) all of the type int.  
-	The program has setDate, getMonth, getDay, getYear, 
+	The program has setDate, getMonth, getDay, getYear, printDate, and two constructors.
 */
 #ifndef H_DateType
 #define H_DateType
@@ -12,7 +12,7 @@ class DateType
 public:
 	void setDate(int month, int day, int year); 
 	//Function to set the date.
-	//The member variables dMonth, dDay, and dYear are set 
+	//The member variables Month, Day, and Year are set 
 	//according to the parameters.
 	//Postcondition: Month = month; Day = day;
 	//               Year = year

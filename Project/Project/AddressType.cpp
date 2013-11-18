@@ -16,7 +16,7 @@ using namespace std;
 	streetAddress = strAddr;
 	city = c;
 	state = st;
-	zipCode = z;*/
+	zipCode = z;}*/
 	this->streetAddress = streetAddress;
 	this->city = city;
 	this->state = state;
@@ -38,7 +38,7 @@ using namespace std;
 	streetAddress = strAddr;
 	city = c;
 	state = st;
-	zipCode = z;*/
+	zipCode = z;}*/
 	this->streetAddress = streetAddress;
 	this->city = city;
 	this->state = state;
