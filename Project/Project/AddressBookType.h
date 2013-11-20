@@ -8,11 +8,12 @@
 #include <iostream>
 #include <fstream>
 #include "arrayListType.h"
+#include "orderedLinkedList.h"
 
 using namespace std;
 
 template <class elemType>
-class AddressBookType : public arrayListType<elemType>
+class AddressBookType : public orderedLinkedList<elemType>
 {
 public:
     void print();
