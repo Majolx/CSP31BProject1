@@ -3,13 +3,12 @@
 #include "AddressType.h"
 
 using namespace std;
-	void AddressType::setAddress(string strAddr, string c, string st, string z)
-	{
+	void AddressType::setAddress(string strAddr, string c, string st, string z){
 		streetAddress = strAddr;
 		city = c;
 		state = st;
 		zipCode = z;
-	}
+}
 
 	void AddressType::getAddress(string &streetAddress, string &city, string &state, string &zipCode){
 	streetAddress = this->streetAddress;
@@ -22,8 +21,7 @@ using namespace std;
 	cout << streetAddress << endl << city << ", " << state << " " << zipCode << endl;
 }
 
-bool AddressType::operator==(AddressType& rhs) const
-{
+	bool AddressType::operator==(AddressType& rhs) const{
 	return (this->streetAddress == rhs.streetAddress &&
 		    this->city == rhs.city &&
 			this->state == rhs.state &&

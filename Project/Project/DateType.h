@@ -1,6 +1,10 @@
-/*	Class DateType has three private data components ( month, day, and year) all of the type int.  
-	The program has setDate, getMonth, getDay, getYear, printDate, and two constructors.
-*/
+////////////////////////////////////////////////////////////////////////////////
+//	Class DateType has three private data components ( month, day, and year)
+//	all of the type int.  The program has setDate, getMonth, getDay, getYear,
+//	printDate, and two constructors.
+//		By:		Michael Askew
+//		Date:	11/13/2013
+////////////////////////////////////////////////////////////////////////////////
 #ifndef H_DateType
 #define H_DateType
 #include <iostream>

@@ -1,7 +1,10 @@
-/*	Class addressType has four private data components (streetAddress, city, state 
-	and zipCode) all of the type string.  The program has setAddress, getAddress, 
-	printAddress, and two constructors.
-*/
+////////////////////////////////////////////////////////////////////////////////
+//	Class addressType has four private data components (streetAddress, city, state 
+//	and zipCode) all of the type string.  The program has setAddress, getAddress, 
+//	printAddress, and two constructors.
+//		By:		Michael Askew
+//		Date:	11/15/2013
+////////////////////////////////////////////////////////////////////////////////
 #ifndef H_AddressType
 #define H_AddressType
 #include <iostream>
@@ -18,7 +21,7 @@ public:
 	//according to the parameters.
 	//Postcondition: streetAddress = strAddr; city = c;
 	//state = st; zipCode = z;
-	//set member variables streetAddress, city, state, zipcode
+	//set member variables streetAddress, city, state, zipCode
 
 	void getAddress(string &streetAddress, string &city, string &state, string &zipCode);
 	//Fuunction to get the address, city, state, and zipCode.
@@ -31,6 +34,9 @@ public:
 	//city, state zipcode
 
 	bool operator==(AddressType& rhs) const;
+	//Function to overload the relational operator
+	//and return the streetAddress, city, state, and zipCode
+
 	AddressType();
 	//constructor
 
