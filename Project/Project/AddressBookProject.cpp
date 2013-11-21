@@ -18,6 +18,7 @@ void optionFour();
 void optionFive();
 void optionSix();
 void optionSeven();
+void optionEight();
 
 AddressBookType<ExtPersonType> addressBook;
 
@@ -87,7 +88,7 @@ int main()
 
 	int userSelection = 0;
 
-	while (userSelection != 8)
+	while (userSelection != 9)
 	{
 		cout << "Welcome to the address book program." << endl << endl;
 		cout << "Choose among the following options." << endl << endl;
@@ -100,13 +101,13 @@ int main()
 			cout << "Your choice : ";
 			if (cin >> userSelection)
 			{
-				if (userSelection >= 1 && userSelection <= 8)
+				if (userSelection >= 1 && userSelection <= 9)
 				{
 					break;
 				}
 				else
 				{
-					cout << "Please pick a number between 1 and 8!" << endl;
+					cout << "Please pick a number between 1 and 9!" << endl;
 					resetInput();
 				}
 			}
@@ -145,10 +146,16 @@ int main()
 			optionSix();
 			break;
 		case 7:
-			// Save data
+			//Add/Delete a person
 			optionSeven();
 			break;
+
 		case 8:
+			// Save data
+			optionEight();
+			break;
+		
+		case 9:
 			// Terminate program
 			break;
 		default:
@@ -171,8 +178,9 @@ void showMenu()
 	cout << "4: Print the names of persons between two last names" << endl;
 	cout << "5: Print the names of person having a particular status" << endl;
 	cout << "6: Print the address book" << endl;
-	cout << "7: Save data" << endl;
-	cout << "8: Terminate the program" << endl;
+	cout << "7: Add/Delete a person to the address book" << endl;
+	cout << "8: Save data" << endl;
+	cout << "9: Terminate the program" << endl;
 	cout << endl;
 }
 
@@ -312,6 +320,62 @@ void optionSix()
 }
 
 void optionSeven()
+{
+	int answer = 0, month = 0, day = 0, year = 0;
+	string lastName = "", firstName = "", streetAddress = "", city = "", 
+		   state = "", zipcode = "", phoneNumber = "", status = "";
+	
+	cout << "Enter 1 to add or 2 to delete: ";
+	cin >> answer;
+	
+	while(answer != 1 || answer != 2)
+	{
+		cout << "Invalid choice! Enter 1 or 2 only" << endl;
+		cout << "Enter 1 to add or 2 to delete: ";
+		cin >> answer;
+	}
+	
+	if (answer == 1)
+	{
+		cout << "Enter first name: ";
+		cin >> firstName;
+		cout << endl << "Enter last name: ";
+		cin >> lastName;
+		cout << endl << "Enter birth month: ";
+		cin >> month;
+		cout << endl << "Enter birth day: ";
+		cin >> day;
+		cout << endl << "Enter birth year: ";
+		cin >> year;
+		cout << endl << "Enter street address: ";
+		cin >> streetAddress;
+		cout << endl << "Enter city: ";
+		cin >> city;
+		cout << endl << "Enter state: ";
+		cin >> state;
+		cout << endl << "Enter zip code: ";
+		cin >> zipcode;
+		cout << endl << "Enter phone number: ";
+		cin >> phoneNumber;
+		cout << endl << "Enter personal status (Family, Friend, or Business: ";
+		cin >> status;
+		cout << endl;
+
+		//call something to insert the info to linkList
+	}
+
+	else
+	{
+		cout << "Enter the person's last name to be deleted: ";
+		cin >> lastName;
+		cout << endl << "Enter the person's first name to be deleted: ";
+		cin >> firstName;
+
+		//call something to delete the matching info in the list
+	}
+}
+
+void optionEight()
 {
 	ofstream outFile;
 	outFile.open("output.txt");
