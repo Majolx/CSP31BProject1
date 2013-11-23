@@ -1,0 +1,29 @@
+## .gitignore ##
+
+# What's up guys.  This file specifies which
+# files should be ignored by GitHub.
+#  # - Comment line
+
+$ cat .gitignore
+
+# Ignore all files in the Debug directories
+
+./Project/Debug/*
+./Project/Debug
+./Project/Project/Debug/*
+./Project/Project/Debug
+
+
+# Ignore all Project binaries
+
+./Project/Project.sdf
+./Project/Project.sln
+./Project/Project.sln.doctstates.suo
+./Project/Project.suo
+./Project/Project/Project.vcxproj
+./Project/Project/Project.vcxproj.filters
+./Project/Project/Project.vcxproj.user
+./Project/ipch/project-fc161d/project-12eaf403.ipch
+
+# Ignore 
+./Project/Project/output.txt
